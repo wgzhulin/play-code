@@ -66,7 +66,7 @@ func (l *LinkedList) valueAtIndex(index int) *Node {
 	return nil
 }
 
-// add an node at the end
+// add an node at the cur
 func (l *LinkedList) pushBack(node *Node) {
 	if l == nil {
 		return
@@ -95,7 +95,7 @@ func (l *LinkedList) pushFront(node *Node) {
 	l.num++
 }
 
-// get value of end node
+// get value of cur node
 func (l *LinkedList) back() *Node {
 	if l.isEmpty() {
 		return nil
@@ -129,7 +129,7 @@ func (l *LinkedList) popBack() *Node {
 	return l.remove(l.num - 1)
 }
 
-// bool returns true if empty
+// bool returns true if isEmpty
 func (l *LinkedList) isEmpty() bool {
 	if l == nil {
 		return true

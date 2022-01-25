@@ -1,4 +1,4 @@
-package container
+package list
 
 type List []interface{}
 
@@ -6,11 +6,11 @@ func NewList() List {
 	return make(List, 0)
 }
 
-func (l *List) add(ele interface{}) {
+func (l *List) Add(ele interface{}) {
 	*l = append(*l, ele)
 }
 
-func (l *List) clear() {
+func (l *List) Clear() {
 	if len(*l) == 0 {
 		return
 	}
@@ -20,7 +20,7 @@ func (l *List) clear() {
 	*l = (*l)[:0]
 }
 
-func (l *List) remove(index int) interface{} {
+func (l *List) Remove(index int) interface{} {
 	if len(*l) == 0 || index <0 || index > len(*l)-1{
 		return nil
 	}
@@ -31,15 +31,15 @@ func (l *List) remove(index int) interface{} {
 	return result
 }
 
-func (l *List) size() int {
+func (l *List) Size() int {
 	return len(*l)
 }
 
-func (l *List) isEmpty() bool {
+func (l *List) IsEmpty() bool {
 	return len(*l) == 0
 }
 
-func (l *List) contains(ele interface{}) bool {
+func (l *List) Contains(ele interface{}) bool {
 	if len(*l) == 0 {
 		return false
 	}

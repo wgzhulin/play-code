@@ -1,22 +1,26 @@
-package container
+package queue
+
+import (
+	"github.com/play-code/src/basedata/ele"
+)
 
 // max size of the queue
 const queueMaxSize = 10
 
-type QueueFixArray struct {
+type FixArrayQueue struct {
 	size int
 	cur  int
 	data FixArray
 }
 
-type FixArray [queueMaxSize]*Ele
+type FixArray [queueMaxSize]*ele.Ele
 
-func NewQueueFixArray() *QueueFixArray {
-	return &QueueFixArray{cur: queueMaxSize - 1}
+func NewFixArrayQueue() *FixArrayQueue {
+	return &FixArrayQueue{cur: queueMaxSize - 1}
 }
 
-func (q *QueueFixArray) enqueue(ele *Ele) {
-	if q == nil || q.full() {
+func (q *FixArrayQueue) Enqueue(ele *ele.Ele) {
+	if q == nil || q.Full() {
 		return
 	}
 	cur := (q.cur - q.size + queueMaxSize) % queueMaxSize
@@ -24,8 +28,8 @@ func (q *QueueFixArray) enqueue(ele *Ele) {
 	q.size++
 }
 
-func (q *QueueFixArray) dequeue() *Ele {
-	if q.isEmpty() {
+func (q *FixArrayQueue) Dequeue() *ele.Ele {
+	if q.IsEmpty() {
 		return nil
 	}
 
@@ -39,14 +43,14 @@ func (q *QueueFixArray) dequeue() *Ele {
 	return result
 }
 
-func (q *QueueFixArray) isEmpty() bool {
+func (q *FixArrayQueue) IsEmpty() bool {
 	if q == nil {
 		return true
 	}
 	return q.size == 0
 }
 
-func (q *QueueFixArray) full() bool {
+func (q *FixArrayQueue) Full() bool {
 	if q == nil {
 		return true
 	}

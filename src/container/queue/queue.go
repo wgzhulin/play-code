@@ -10,3 +10,7 @@ type Queue interface {
 	IsEmpty() bool
 	Full() bool
 }
+
+func NewQueue() Queue {
+	return NewLinkedListQueue()
+}

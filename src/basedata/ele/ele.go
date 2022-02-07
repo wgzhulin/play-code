@@ -18,3 +18,11 @@ func (e *Ele) Equals(ele *Ele) bool {
 	}
 	return reflect.DeepEqual(e.value, ele.value)
 }
+
+
+func (e *Ele) Value() interface{} {
+	if e == nil  {
+		return nil
+	}
+	return e.value
+}

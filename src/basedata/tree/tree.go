@@ -7,3 +7,7 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
+
+func NewTreeNode(val ele.TreeEle) *TreeNode {
+	return &TreeNode{Val: val}
+}
